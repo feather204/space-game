@@ -2,7 +2,6 @@ extends StaticBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var collision_shape = $CollisionShape2D
-@onready var world = $"../MapManager/World"
 
 var open = false
 var walkable = false
@@ -11,7 +10,7 @@ var tile_position: Vector2i
 func _ready() -> void:
 	z_index = 2
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if animated_sprite.frame == 4:
 		if walkable == false:
 			collision_shape.disabled = false	

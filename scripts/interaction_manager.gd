@@ -7,7 +7,7 @@ var hovered_tile
 var hovered_data
 var hovered_object
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var mouse_pos = get_global_mouse_position()
 	var tile_pos = world.local_to_map(world.to_local(mouse_pos))
 	
