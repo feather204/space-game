@@ -7,9 +7,17 @@
 radius = 6.0
 height = 14.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1917443573]
+[sub_resource type="Gradient" id="Gradient_g2els"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qhqgy"]
+gradient = SubResource("Gradient_g2els")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8304348, 0.13913043)
+
+[node name="Player" type="CharacterBody2D" unique_id=1917443573 groups=["player"]]
 script = ExtResource("1_onrkg")
-SPEED = 60.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1242414044]
 texture = ExtResource("2_g2els")
@@ -20,3 +28,6 @@ shape = SubResource("CapsuleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=600175701]
 zoom = Vector2(4, 4)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=890466740]
+texture = SubResource("GradientTexture2D_qhqgy")

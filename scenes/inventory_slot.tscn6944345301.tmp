@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://di4fas60j5baw"]
+
+[ext_resource type="Script" uid="uid://basbubgu86rqm" path="res://scripts/inventory_slot.gd" id="1_bxqf6"]
+[ext_resource type="Texture2D" uid="uid://bf1ocp0vtwpwq" path="res://sprites/player.png" id="1_dxvxp"]
+
+[node name="inventory_slot" type="Control" unique_id=179146734 groups=["inventory_slot"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1216.0
+offset_bottom = -656.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bxqf6")
+
+[node name="Slot" type="Panel" parent="." unique_id=2083308074]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="Image" type="TextureRect" parent="Slot" unique_id=457530256]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dxvxp")
+expand_mode = 1
+
+[node name="Quantity" type="Label" parent="Slot" unique_id=944303265]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "12"
+horizontal_alignment = 2

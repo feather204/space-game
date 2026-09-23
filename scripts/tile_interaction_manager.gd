@@ -1,0 +1,20 @@
+extends Node2D
+
+@onready var world = $"../MapManager/World"
+
+func interact(tile_pos, tile_data, _player):
+	var type = tile_data.get_custom_data("type")
+	
+	if type == "asteroid":
+		var asteroid_material = tile_data.get_custom_data("material")
+		var slots = get_tree().get_nodes_in_group("inventory_slot")
+		var mined = false
+
+		for slot in slots:
+			if slot.item == null or slot.item == asteroid_material:
+				slot.add_item(asteroid_material)
+				mined = true
+				break
+			
+		if mined:
+			world.erase_cell(tile_pos)

@@ -5,6 +5,7 @@ extends Node2D
 @export var door_scene: PackedScene
 
 func _ready() -> void:
+	# replace all door tiles with door nodes
 	for tile_pos in world.get_used_cells():
 		var tile_data = world.get_cell_tile_data(tile_pos)
 		

@@ -8,9 +8,11 @@ var walkable = false
 var tile_position: Vector2i
 
 func _ready() -> void:
+	# make it above player
 	z_index = 2
 	
 func _process(_delta: float) -> void:
+	# toggle collision based on current frame
 	if animated_sprite.frame == 4:
 		if walkable == false:
 			collision_shape.disabled = false	
@@ -18,6 +20,7 @@ func _process(_delta: float) -> void:
 			collision_shape.disabled = true
 		
 func interact():
+	# toggle door open/close
 	if open == false:
 		walkable = true
 		animated_sprite.play("open")

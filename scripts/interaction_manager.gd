@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var world = $"../MapManager/World"
 @onready var highlight = $Highlight
+@onready var tile_interaction_manager = $"../TileInteractionManager"
 
 var hovered_tile
 var hovered_data
@@ -11,6 +12,7 @@ func _process(_delta: float) -> void:
 	var mouse_pos = get_global_mouse_position()
 	var tile_pos = world.local_to_map(world.to_local(mouse_pos))
 	
+	# get either object or tile hovered
 	hovered_object = null
 	for object in get_tree().get_nodes_in_group("interactable"):
 		if object.tile_position == tile_pos:
@@ -38,11 +40,12 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			var player = get_tree().get_first_node_in_group("player")
+			# object interaction
 			if hovered_object:
 				hovered_object.interact()
+			# tile interactions
 			elif hovered_data:
 				var interactable = hovered_data.get_custom_data("interactable")
 				if interactable == true:
-					var type = hovered_data.get_custom_data("type")
-					if type == "asteroid":
-						print("mined")
+					tile_interaction_manager.interact(hovered_tile, hovered_data, player)

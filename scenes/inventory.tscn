@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://n63l85e87um5"]
+
+[ext_resource type="Script" uid="uid://dwwk6iyq4yuhc" path="res://scripts/inventory.gd" id="1_qw0r6"]
+[ext_resource type="PackedScene" uid="uid://di4fas60j5baw" path="res://scenes/inventory_slot.tscn" id="2_hj2ta"]
+
+[node name="Inventory" type="Control" unique_id=384002233]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qw0r6")
+slot_scene = ExtResource("2_hj2ta")
+
+[node name="Panel" type="Panel" parent="." unique_id=1172452460]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -416.0
+offset_right = 366.0
+offset_bottom = -16.0
+grow_vertical = 0
+
+[node name="GridContainer" type="GridContainer" parent="Panel" unique_id=2147300540]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -400.0
+offset_right = 350.0
+grow_vertical = 0
+theme_override_constants/h_separation = 70
+theme_override_constants/v_separation = 70
+columns = 5

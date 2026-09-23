@@ -6,7 +6,10 @@ extends Node2D
 @onready var world = $MapManager/World
 
 func _ready() -> void:
+	# spawn player
 	spawn_player()
+
+	# make fake shadows with world tiles
 	var shadows = world.duplicate()
 	$MapManager.add_child(shadows)
 	shadows.position += Vector2(2,2)
