@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 75.0
+@export var SPEED = 75.0
 
 func get_input():
 	#look_at(get_global_mouse_position())

@@ -4,11 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://bf1ocp0vtwpwq" path="res://sprites/player.png" id="2_g2els"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
-radius = 5.0
+radius = 6.0
 height = 14.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1917443573]
 script = ExtResource("1_onrkg")
+SPEED = 60.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1242414044]
 texture = ExtResource("2_g2els")

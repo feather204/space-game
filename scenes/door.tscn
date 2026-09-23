@@ -70,9 +70,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvdjg"]
-
-[node name="Door" type="StaticBody2D" unique_id=556314387]
+[node name="Door" type="StaticBody2D" unique_id=556314387 groups=["doors", "interactable"]]
 script = ExtResource("1_v6xrn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1732698506]
@@ -84,12 +82,3 @@ z_index = 10
 sprite_frames = SubResource("SpriteFrames_xg3tq")
 animation = &"open"
 speed_scale = 1.5
-
-[node name="Area2D" type="Area2D" parent="." unique_id=478921581]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=970225439]
-shape = SubResource("RectangleShape2D_uvdjg")
-
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
