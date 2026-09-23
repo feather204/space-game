@@ -13,7 +13,6 @@ config_version=5
 config/name="space game"
 run/main_scene="uid://d4khh6apqdspv"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [display]
 
