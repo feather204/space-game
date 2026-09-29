@@ -8,6 +8,12 @@ var item_data = preload("res://scripts/item_data.gd").new()
 
 var item = null
 var quantity = 0
+var selected = false
+
+func set_selected(value):
+	selected = value
+	
+	$Slot/Selected.visible = selected
 
 func add_item(_new_item, _quantity):
 	if item == null:
@@ -29,16 +35,15 @@ func update_display():
 
 	quantity_label.text = str(quantity) if quantity >= 1 else ""
 
-func drop_item():
+func drop_item(tile_pos):
 	if item != null:
-		var player = get_tree().get_first_node_in_group("player")
-		var tile_pos = world.local_to_map(world.to_local(player.global_position))
 
 		for dropped_item in get_tree().get_nodes_in_group("dropped_item"):
-			if dropped_item.tile_position == tile_pos and dropped_item.item == item:
-				dropped_item.quantity += quantity
-				dropped_item.update_display()
-				clear_slot()
+			if dropped_item.tile_position == tile_pos:
+				if dropped_item.item == item:
+					dropped_item.quantity += quantity
+					dropped_item.update_display()
+					clear_slot()
 				return
 
 		var dropped_item = preload("res://scenes/dropped_item.tscn").instantiate()	
@@ -54,8 +59,3 @@ func clear_slot():
 	item = null
 	quantity = 0
 	update_display()
-
-func _gui_input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		if item != null:
-			drop_item()

@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var world = $"../MapManager/World"
+@onready var shadows = $"../MapManager/Shadow"
 
 func interact(tile_pos, tile_data, _player):
 	var type = tile_data.get_custom_data("type")
@@ -25,3 +26,4 @@ func interact(tile_pos, tile_data, _player):
 			
 		if mined:
 			world.erase_cell(tile_pos)
+			shadows.erase_cell(tile_pos)
