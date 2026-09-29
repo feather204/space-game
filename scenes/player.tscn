@@ -122,4 +122,4 @@ texture = SubResource("GradientTexture2D_dqkch")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=42533763]
 sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"space"
-frame_progress = 0.5106376
+frame_progress = 0.28294665

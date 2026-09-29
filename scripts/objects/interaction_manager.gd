@@ -17,7 +17,11 @@ func _process(_delta: float) -> void:
 	hovered_object = null
 	for object in get_tree().get_nodes_in_group("interactable"):
 		if object.tile_position == tile_pos:
-			hovered_object = object
+			if object.is_in_group("dropped_item"):
+				hovered_object = object
+				break
+			elif hovered_object == null:
+				hovered_object = object
 			
 	hovered_tile = tile_pos
 	hovered_data = world.get_cell_tile_data(tile_pos)
