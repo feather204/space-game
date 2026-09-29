@@ -6,10 +6,11 @@ extends StaticBody2D
 var open = false
 var walkable = false
 var tile_position: Vector2i
+var display_name = "Door"
 
 func _ready() -> void:
 	# make it above player
-	z_index = 2
+	z_index = 4
 	
 func _process(_delta: float) -> void:
 	# toggle collision based on current frame

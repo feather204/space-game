@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://fevnfv1pmmym"]
+
+[ext_resource type="Script" uid="uid://cu2ohyxx0cqkt" path="res://scripts/dropped_item.gd" id="1_qu2ag"]
+[ext_resource type="Texture2D" uid="uid://bejx1bir2yji7" path="res://sprites/items/iron_ore.png" id="1_u41rd"]
+[ext_resource type="FontFile" uid="uid://dkwgxpu1btw78" path="res://Tiny5-Regular.ttf" id="3_x65sn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qu2ag"]
+radius = 8.062258
+
+[sub_resource type="LabelSettings" id="LabelSettings_eyay6"]
+font = ExtResource("3_x65sn")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DroppedItem" type="Area2D" unique_id=1582269811 groups=["dropped_item", "interactable"]]
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_qu2ag")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=448311546]
+texture = ExtResource("1_u41rd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=28529442]
+shape = SubResource("CircleShape2D_qu2ag")
+
+[node name="Quantity" type="Label" parent="." unique_id=66673364]
+z_index = 1
+offset_left = -14.666667
+offset_top = -6.666667
+offset_right = 25.333332
+offset_bottom = 16.333332
+text = "0"
+label_settings = SubResource("LabelSettings_eyay6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

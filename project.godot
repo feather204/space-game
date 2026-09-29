@@ -25,6 +25,7 @@ doors=""
 interactable=""
 player=""
 inventory_slot=""
+dropped_item=""
 
 [input]
 

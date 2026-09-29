@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var world = $"../MapManager/World"
 @onready var highlight = $Highlight
+@onready var hover_label = $"../UI/HoveredName"
 @onready var tile_interaction_manager = $"../TileInteractionManager"
 
 var hovered_tile
@@ -17,24 +18,27 @@ func _process(_delta: float) -> void:
 	for object in get_tree().get_nodes_in_group("interactable"):
 		if object.tile_position == tile_pos:
 			hovered_object = object
-			break
 			
 	hovered_tile = tile_pos
 	hovered_data = world.get_cell_tile_data(tile_pos)
 	
 	# highlight hovered tile
+	hover_label.position = get_viewport().get_mouse_position() + Vector2(10, 10)
+	highlight.position = world.map_to_local(tile_pos)
+
 	if hovered_object:
-		highlight.position = world.map_to_local(tile_pos)
+		hover_label.text = hovered_object.display_name
+		hover_label.show()
 		highlight.show()
-	elif hovered_data:
-		var interactable = hovered_data.get_custom_data("interactable")
-		
-		if interactable == true:
-			highlight.position = world.map_to_local(tile_pos)
-			highlight.show()
-		else:
-			highlight.hide()
+
+	elif hovered_data and hovered_data.get_custom_data("interactable"):
+		hover_label.text = hovered_data.get_custom_data("display_name")
+		hover_label.show()
+		highlight.show()
+
 	else:
+		hover_label.text = ""
+		hover_label.hide()
 		highlight.hide()
 
 func _input(event: InputEvent) -> void:

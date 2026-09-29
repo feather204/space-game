@@ -11,10 +11,17 @@ func interact(tile_pos, tile_data, _player):
 		var mined = false
 
 		for slot in slots:
-			if slot.item == null or slot.item == asteroid_material:
-				slot.add_item(asteroid_material)
+			if slot.item == asteroid_material:
+				slot.add_item(asteroid_material, 1)
 				mined = true
 				break
+
+		if not mined:
+			for slot in slots:
+				if slot.item == null:
+					slot.add_item(asteroid_material, 1)
+					mined = true
+					break
 			
 		if mined:
 			world.erase_cell(tile_pos)
