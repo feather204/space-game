@@ -98,7 +98,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=1917443573 groups=["player"]]
-z_index = 3
+z_index = 5
 script = ExtResource("1_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1600434636]
@@ -121,4 +121,4 @@ texture = SubResource("GradientTexture2D_dqkch")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=42533763]
 sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"space"
-frame_progress = 0.43948898
+frame_progress = 0.599526

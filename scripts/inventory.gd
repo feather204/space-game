@@ -18,3 +18,7 @@ func _input(event):
 	if event.is_action_pressed("drop"):
 		var slot = get_child(selected_slot)
 		slot.drop_item(interaction_manager.hovered_tile)
+
+	if event.is_action_pressed("drop_all"):
+		var slot = get_child(selected_slot)
+		slot.drop_all(interaction_manager.hovered_tile)

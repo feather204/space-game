@@ -41,15 +41,35 @@ func drop_item(tile_pos):
 		for dropped_item in get_tree().get_nodes_in_group("dropped_item"):
 			if dropped_item.tile_position == tile_pos:
 				if dropped_item.item == item:
+					dropped_item.quantity += 1
+					dropped_item.update_display()
+					quantity -= 1
+					update_display()
+				return
+
+		var dropped_item = preload("res://scenes/dropped_item.tscn").instantiate()	
+		dropped_item.set_item(item, 1)
+		dropped_item.tile_position = tile_pos
+
+		world.add_child(dropped_item)
+		dropped_item.position = world.map_to_local(tile_pos)
+
+		quantity -= 1
+		update_display()
+
+func drop_all(tile_pos):
+	if item != null:
+		for dropped_item in get_tree().get_nodes_in_group("dropped_item"):
+			if dropped_item.tile_position == tile_pos:
+				if dropped_item.item == item:
 					dropped_item.quantity += quantity
 					dropped_item.update_display()
 					clear_slot()
 				return
 
 		var dropped_item = preload("res://scenes/dropped_item.tscn").instantiate()	
-		dropped_item.set_item(item, quantity)
+		dropped_item.set_item(item, 1)
 		dropped_item.tile_position = tile_pos
-
 		world.add_child(dropped_item)
 		dropped_item.position = world.map_to_local(tile_pos)
 

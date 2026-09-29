@@ -5,7 +5,7 @@ extends Node2D
 @onready var shadows = $"../MapManager/Shadow"
 
 func _ready():
-	shadows.position = Vector2(2, 2)
+	shadows.position = Vector2(2, 4)
 	for tile_pos in world.get_used_cells():
 		var source_id = world.get_cell_source_id(tile_pos)
 		var atlas_coords = world.get_cell_atlas_coords(tile_pos)

@@ -28,7 +28,10 @@ func interact():
 			return
 
 func update_display():
-	$Quantity.text = str(quantity)
+	if quantity != 1:
+		$Quantity.text = str(quantity)
+	else:
+		$Quantity.text = ""
 	if item != null:
 		$Sprite2D.texture = item_data.items[item]["image"]
 		display_name = item_data.items[item]["name"]
