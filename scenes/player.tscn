@@ -8,7 +8,8 @@ radius = 6.0
 height = 14.0
 
 [sub_resource type="Gradient" id="Gradient_g2els"]
-colors = PackedColorArray(1, 1, 1, 0.6627451, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.3554217, 1)
+colors = PackedColorArray(1, 1, 1, 0.6627451, 0.38431373, 0.38431373, 0.38431373, 0.92941177, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qhqgy"]
 gradient = SubResource("Gradient_g2els")
@@ -121,4 +122,4 @@ texture = SubResource("GradientTexture2D_dqkch")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=42533763]
 sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"space"
-frame_progress = 0.599526
+frame_progress = 0.5106376

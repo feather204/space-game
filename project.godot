@@ -20,6 +20,8 @@ boot_splash/show_image=false
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/show_image=true
+window/bg_color=Color(0.14, 0.14, 0.14, 1)
 
 [global_group]
 

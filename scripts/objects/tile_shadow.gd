@@ -1,8 +1,7 @@
 extends Node2D
 
-
-@onready var world = $"../MapManager/World"
-@onready var shadows = $"../MapManager/Shadow"
+@onready var world = $"../World"
+@onready var shadows = $"../Shadow"
 
 func _ready():
 	shadows.position = Vector2(2, 4)

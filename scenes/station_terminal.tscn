@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d0mt5a2b7veev"]
 
-[ext_resource type="Script" uid="uid://dbegsoj1slh8v" path="res://scripts/station_terminal.gd" id="1_nx8mt"]
+[ext_resource type="Script" uid="uid://dbegsoj1slh8v" path="res://scripts/objects/station_terminal.gd" id="1_nx8mt"]
 [ext_resource type="Texture2D" uid="uid://byh5qohhg1diw" path="res://sprites/station_terminal.png" id="1_u58c0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nx8mt"]
@@ -30,5 +30,4 @@ shape = SubResource("RectangleShape2D_nx8mt")
 position = Vector2(0, 1)
 scale = Vector2(0.96875, 0.9843749)
 color = Color(0, 1, 0, 1)
-energy = 0.5
 texture = SubResource("GradientTexture2D_nx8mt")
