@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var world = $"../MapManager/World"
+@onready var map_manager = get_tree().current_scene.get_node("MapManager")
+@onready var world = map_manager.world
 
 @export var door_scene: PackedScene
 

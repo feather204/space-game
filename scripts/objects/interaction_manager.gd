@@ -1,9 +1,12 @@
 extends Node2D
 
-@onready var world = $"../MapManager/World"
 @onready var highlight = $Highlight
 @onready var hover_label = $"../UI/HoveredName"
 @onready var tile_interaction_manager = $"../TileInteractionManager"
+
+@onready var map_manager = get_tree().current_scene.get_node("MapManager")
+@onready var world = map_manager.world
+
 
 var hovered_tile
 var hovered_data

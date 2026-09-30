@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
 @export var speed = 75.0
+
 @onready var sprite = $AnimatedSprite2D
-@onready var floors = $"../MapManager/Floors"
+@onready var map_manager = get_tree().current_scene.get_node("MapManager")
+@onready var floors = map_manager.floors
 
 var on_floor = false
 
@@ -27,8 +29,6 @@ func get_input():
 func _physics_process(_delta: float) -> void:
 	var tile_pos = floors.local_to_map(floors.to_local(global_position))
 	on_floor = floors.get_cell_source_id(tile_pos) != -1
-
-	print(tile_pos, " ", floors.get_cell_source_id(tile_pos), " ", on_floor)
 
 	get_input()
 	move_and_slide()
